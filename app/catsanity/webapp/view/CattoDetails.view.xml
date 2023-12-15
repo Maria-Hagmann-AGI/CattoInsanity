@@ -1,0 +1,84 @@
+<mvc:View
+    controllerName="catsanity.controller.CattoDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <Page
+        id="CattoDetails"
+        title="Catto Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding">
+        <content>
+            <Panel
+                id="CattofgPanel"
+                width="auto"
+                class="sapUiResponsiveMargin sapUiNoContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Catto ID:" level="H2" />
+                        <Text text="{ID}"/>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" tooltip="edit" press=""/>
+                        <Button icon="sap-icon://delete" tooltip="delete" press=""/>
+                    </Toolbar>
+                </headerToolbar>
+                <content>
+                    <f:SimpleForm
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                        labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                        columnsL="1" columnsM="1">
+                        <f:content>
+                            <Label text="Name" />
+                            <Text text="{name}" />
+                            <Label text="Color" />
+                            <Text text="{color}" />
+                            <Label text="Birthdate" />
+                            <Text text="{birthdate}" />
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+            <Panel
+                id="CattoPanel"
+                width="auto"
+                class="sapUiResponsiveMargin sapUiNoContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Button icon="sap-icon://add" tooltip="add" press=""/>
+                        <Title text="Mental Illnesses" level="H2"/>
+                    </Toolbar>
+                </headerToolbar>
+                <Table items="{mentalIllnesses}">
+                    <columns>
+                        <Column width="">
+                            <Text text="Name" />
+                        </Column>
+                        <Column width="">
+                            <Text text="description" />
+                        </Column>
+                        <Column>
+                            <Text text="Insanity Stage" />
+                        </Column>
+                        <Column width="3em" />
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{mentalIllness/name}" />
+                                <Text text="{mentalIllness/description}" /> 
+                                <Text text="{mentalIllness/insanityStage}" />
+                                <Button icon="sap-icon://delete" press="" type="Transparent" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

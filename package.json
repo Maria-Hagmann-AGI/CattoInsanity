@@ -1,0 +1,25 @@
+{
+  "name": "CapCattoInsanity",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "cds-swagger-ui-express": "^0.7.0",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1.4.0",
+    "@sap/ux-specification": "^1.120.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-cattoinsanity": "cds watch --open cattoinsanity/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-catsanity": "cds watch --open catsanity/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/cattoinsanity"
+  ]
+}

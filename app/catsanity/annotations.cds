@@ -1,0 +1,1 @@
+using catsanity as service from '../../srv/catsanity-service';

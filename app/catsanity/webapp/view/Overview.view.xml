@@ -1,0 +1,88 @@
+<mvc:View xmlns:macros="sap.fe.macros" controllerName="catsanity.controller.Overview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout">
+    <Page id="Overview" showHeader="false">
+        <content>
+            <ObjectHeader
+                title="Catsanity"
+                backgroundDesign="Solid"/>
+        </content>
+        <IconTabBar
+            id="insaneCattoTabbar"
+            class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter id="cattos" text="Cattos" key="cattos">
+                    <Table id="cattoTable"
+                        class="sapFDynamicPageAlignContent"
+                        items="{/Cats}">
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Cats" width="95%"/>
+                                <Button text="Create" press=".onCattoCreate" type="Emphasized"/> 
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="">
+                                <Text text="Name" />
+                            </Column>
+                            <Column width="">
+                                <Text text="Color" />
+                            </Column>
+                            <Column>
+                                <Text text="Birthdate" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem
+                                press=".navToCattoDetails"
+                                type="Navigation">
+                                <cells>
+                                    <Text text="{name}"/>
+                                    <Text text="{color}"/>
+                                    <Text text="{birthdate}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </IconTabFilter>
+                <IconTabFilter id="mentalIllnesses" text="Mental Illnesses" key="mentalillnesses">
+                    <Table id="mentalIllnessesTable"
+                        class="sapFDynamicPageAlignContent"
+                        items="{path:'/MentalIllnesses'}">
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Mental Illnesses" width="95%"/>
+                                <Button text="Create" press="" type="Emphasized"/> 
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="">
+                                <Text text="Name" />
+                            </Column>
+                            <Column width="">
+                                <Text text="description" />
+                            </Column>
+                            <Column>
+                                <Text text="Insanity Stage" />
+                            </Column>
+                            <Column width="3em" />
+                            <Column width="3em" />
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{name}"/>
+                                    <Text text="{description}"/>
+                                    <Text text="{insanityStage}"/>
+                                    <Button icon="sap-icon://edit" press="" type="Transparent" />
+                                    <Button icon="sap-icon://delete" press="" type="Transparent" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </Page>
+</mvc:View>
